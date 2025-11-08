@@ -1,25 +1,42 @@
-# Proyecto Festivos
+# API de Festivos
 
-Este proyecto está desarrollado en **Spring Boot** como parte del examen.
+Este proyecto es una **API REST desarrollada con Spring Boot** que permite gestionar los días festivos de distintos países.  
+Fue creada con fines académicos y utiliza una base de datos en memoria **H2** para facilitar las pruebas.
 
-## Contenido del proyecto
+---
 
-Además, el proyecto incluye:
+## Tecnologías utilizadas
 
-- `schema.sql`: definición de tablas.  
-- `data.sql`: inserción de datos iniciales.  
-- `application.properties`: configuración de la base de datos.  
+- Java 17  
+- Spring Boot 3.4.10  
+- Spring Data JPA  
+- H2 Database  
+- Maven
 
-## Entregable (Primera Parte)
+---
 
-- **Capa de Dominio**: entidades `Festivo`, `Pais`, `TipoFestivo`.  
-- **Capa de Repositorio**: interfaces `FestivoRepository`, `PaisRepository`, `TipoFestivoRepository`.  
+## Estructura del proyecto
 
-Los controladores y servicios se entregarán en la siguiente parte del examen.
 
-## Ejecución
+---
 
-1. Clonar el repositorio:
+## Endpoints principales
 
-```bash
-git clone https://github.com/upeguiandru-cmd/Festivos.git
+### 1. Listar todos los festivos
+**GET** `/api/festivos`
+
+### 2. Buscar festivo por ID
+**GET** `/api/festivos/{id}`
+
+### 3. Crear un nuevo festivo
+**POST** `/api/festivos`
+
+**Body ejemplo:**
+```json
+{
+  "nombre": "Día de la Independencia",
+  "dia": 20,
+  "mes": 7,
+  "pais": { "id": 1 },
+  "tipo": { "id": 2 }
+}
